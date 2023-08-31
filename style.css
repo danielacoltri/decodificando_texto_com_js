@@ -82,7 +82,7 @@ h1::before {
 
 .msg {
     background: white;
-    background-image: url(/img/High\ quality\ products\ 1\ 1.svg);
+    background-image: url("img/High quality products 1 1.svg");
     background-repeat: no-repeat;
     background-position: center;
     border: none;
