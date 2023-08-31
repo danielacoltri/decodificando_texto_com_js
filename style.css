@@ -1,0 +1,174 @@
+* {
+    margin-top: 0px;
+    padding: 0;
+    background: #e5e5e5; 
+    font-family: 'Poppins', sans-serif;
+    line-height: 150%;
+}
+
+main {
+    display: flex;
+    margin-bottom: 50px;
+    margin-left: 80px;
+}
+
+.principal {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 90px; */
+}
+
+.logoAlura {  
+    margin-left: 95px;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 2%;
+    margin-right: 50px;
+    position: relative;
+    font-size: 10vh;
+    color: #e5e5e5;
+    -webkit-text-stroke: 0.09vw #0A3871;
+}
+
+h1::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #0A3871;
+    -webkit-text-stroke: 0vh #0A3871;
+    border-right: 2px solid #0A3871;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+    0%, 10%, 100%  {
+        width: 0;
+    }
+    60%, 90% {
+        width: 100%;
+    }
+}
+
+.text-area {
+    border: none;
+    color: #0a3871;
+    /* margin-top: 10px; */
+    margin-left: 25px;
+    width: 550px;
+    height: 250px;
+    text-transform: lowercase;
+    font-size: 20px;
+}
+
+::placeholder { color: #0a3871; }
+    .text-area:focus {
+        outline: none;
+    }
+
+.msg {
+    background: white;
+    background-image: url(/img/High\ quality\ products\ 1\ 1.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 24px;
+    color: #0a3871;
+    margin-left: 100px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    position: relative;
+    width: 450px;
+    height: 500px;
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+.msg:focus {
+    outline: none;
+}
+
+.botoes {
+    display: flex;
+}
+
+.btn-descriptografar {
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: #0A3871;
+    cursor: pointer;
+    height: 50px;
+    margin-left: 30px;
+    width: 250px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-criptografar {
+    background-color: #0A3871;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    width: 250px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* .box {
+    background-color: violet;
+} */
+
+.box-msg {
+    position: relative;
+    /* background-color: aqua; */
+}
+
+.btn-copiar {
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: #0A3871;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    width: 250px;
+    font-size: 18px;
+    font-weight: 600;
+    bottom: 45px;
+    right: 105px;
+}
+
+.info {
+    color: #495057;
+    font-size: 12px ;
+    margin-top: 150px;
+}
+
+.iconeinfo {
+    float: left;
+    margin-right: 10px;
+    margin-top: 00px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    color: #0A3871;
+}

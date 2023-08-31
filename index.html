@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <title>Decodificador</title>
+</head>
+
+<body>
+
+    <div class="principal">
+        <header>
+            <img class="logoAlura" src="/img/Vector.png" alt="Logo Alura">
+            <h1 data-text="DecodificadorDeTexto" class="Titulo">DecodificadorDeTexto</h1>
+	    </header>
+        <main>
+            <section class="box">
+                <textarea style="resize: none" class="text-area" placeholder="digite seu texto"></textarea>
+                <div class="info">
+                    <img class="iconeinfo" src="/img/Group.svg" alt="icone de informações">
+                    <p>Apenas letras minúsculas e sem acento.</p>
+                </div>
+                <div class="botoes">
+                    <button class="btn-criptografar" onclick="btnCriptografar()">Criptografar</button>
+                    <button class="btn-descriptografar" onclick="btnDescriptografar()">Descriptografar</button>
+                </div>
+		    </section>
+            <section class="box-msg">
+                <textarea style="resize: none" class="msg"></textarea>
+                
+                <button class="btn-copiar" onclick="btnCopiar">Copiar</button>
+            </section>
+        </main>
+        <footer>
+            <h3>Challenge ONE - Turma 5 - Daniela Coltri Fernandes - 2023</h3>
+        </footer>
+        <script src="script.js"></script>
+    </div>
+
+</body>
+</html>
