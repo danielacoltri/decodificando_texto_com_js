@@ -68,9 +68,9 @@ h1::before {
     border: none;
     color: #0a3871;
     /* margin-top: 10px; */
-    margin-left: 25px;
-    width: 550px;
-    height: 250px;
+    margin-left: 10%;
+    /* width: 550px;
+    height: 250px; */
     text-transform: lowercase;
     font-size: 20px;
 }
@@ -84,23 +84,40 @@ h1::before {
     background: white;
     background-image: url("img/High quality products 1 1.svg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 50%;
+    background-position-y: 30%;
+    background-size: 80%;
     border: none;
     border-radius: 24px;
     color: #0a3871;
-    margin-left: 100px;
+    margin-left: 350px;
     padding-left: 20px;
     padding-top: 20px;
     padding-right: 20px;
-    position: relative;
-    width: 450px;
-    height: 500px;
+    /* position: relative; */
     box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
     font-size: 20px;
+    align-items: center;
 }
 
 .msg:focus {
     outline: none;
+}
+
+.msg-box{
+    font-weight: 900;
+    font-size: 16px;
+    color: #0A3871;
+    margin-top:-200px;
+    margin-left: 390px;
+}
+
+.texto-box {
+    color: #0A3871;
+    text-align: center;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-left: 350px;
 }
 
 .botoes {
@@ -110,7 +127,7 @@ h1::before {
 .btn-descriptografar {
     background: #D8DFE8;
     border: 1px solid #0A3871;
-    border-radius: 24px;
+    border-radius: 16px;
     color: #0A3871;
     cursor: pointer;
     height: 50px;
@@ -123,7 +140,7 @@ h1::before {
 .btn-criptografar {
     background-color: #0A3871;
     border: 1px solid #0A3871;
-    border-radius: 24px;
+    border-radius: 16px;
     color: white;
     cursor: pointer;
     height: 50px;
@@ -138,7 +155,7 @@ h1::before {
 
 .btn-copiar {
     border: 1px solid #0A3871;
-    border-radius: 24px;
+    border-radius: 16px;
     color: #0A3871;
     cursor: pointer;
     height: 50px;
@@ -146,8 +163,8 @@ h1::before {
     width: 250px;
     font-size: 18px;
     font-weight: 600;
-    bottom: 45px;
-    right: 105px;
+    right: 55px;
+    bottom: 2px;
 }
 
 .info {
