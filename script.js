@@ -30,6 +30,8 @@ function btnDescriptografar(){
     const textoDescriptografado = descriptografar(textArea.value);
     mensagem.value = textoDescriptografado;
     textArea.value = "";
+    hideNoResultContainer();
+    showResultContainer();
   }
 
 function descriptografar(stringDescriptografada) {
@@ -41,6 +43,8 @@ function descriptografar(stringDescriptografada) {
             stringDescriptografada = stringDescriptografada.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0]);
         }
     }
+    hideNoResultContainer();
+    showResultContainer();
     return stringDescriptografada;
 }
 
@@ -62,3 +66,36 @@ btnCopiar.addEventListener("click", (e) => {
 
 // console.log("A string vazia possui um comprimento de " + empty.length);
 // /* "A string vazia possui um comprimento de 0" */
+
+
+    // // Obtém o elemento de input
+    // const campoDeTexto = document.getElementById('campoDeTexto');
+    
+    // // Função para verificar o valor do campo de texto e esconder a imagem de fundo
+    // function verificarTexto() {
+    //   const valorCampo = campoDeTexto.value;
+    //   const imagemDeFundo = document.body.style.backgroundImage;
+
+    //   if (valorCampo.length > 0) {
+    //     // Se houver caracteres no campo de texto, esconde a imagem de fundo
+    //     document.body.style.backgroundImage = 'none';
+    //   } else {
+    //     // Se o campo de texto estiver vazio, mostra a imagem de fundo novamente
+    //     document.body.style.backgroundImage = imagemDeFundo;
+    //   }
+    // }
+
+    // // Adicione um ouvinte de evento ao campo de texto para chamar a função
+    // campoDeTexto.addEventListener('input', verificarTexto);
+
+    function showResultContainer() {
+        resultContainer.classList.add("active");
+      }
+      
+      function hideNoResultContainer() {
+        noResultContainer.classList.add("inative");
+      }
+      
+      function showNoResultContainer() {
+        noResultContainer.classList.remove("inative");
+      }
