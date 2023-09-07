@@ -1,5 +1,6 @@
 const textArea = document.querySelector(".text-area");
 const mensagem = document.querySelector(".msg");
+let podeCopiar = false;
 
 // As "chaves" de criptografia que utilizaremos são:
 // A letra "e" é convertida para "enter"
@@ -9,10 +10,16 @@ const mensagem = document.querySelector(".msg");
 // A letra "u" é convertida para "ufat"
 
 function btnCriptografar(){
-    const textoCriptografado = criptografar(textArea.value);
+  if (textArea.value !== "") {
+    const textoMinusculoSemAcento = removeAcento(textArea.value);
+    const textoCriptografado = criptografar(textoMinusculoSemAcento);
+    mensagem.classList.remove("ImagemDeFundo")
+    podeCopiar = true
     mensagem.value = textoCriptografado;
     textArea.value = "";
+    retira_acentos(textArea);
   }
+}
 
 function criptografar(stringCriptografada) {
     let matrizCodigo = [["e" , "enter"], ["i" , "imes"], ["a" , "ai"], ["o" , "ober"], ["u" , "ufat"]];
@@ -26,13 +33,22 @@ function criptografar(stringCriptografada) {
     return stringCriptografada;
 }
 
-function btnDescriptografar(){
-    const textoDescriptografado = descriptografar(textArea.value);
-    mensagem.value = textoDescriptografado;
-    textArea.value = "";
-    hideNoResultContainer();
-    showResultContainer();
+function btnDescriptografar() {
+  if (textArea.value !== "") {
+    executarDescriptografar(textArea.value);
+  } else if (mensagem.value !== "") {
+    executarDescriptografar(mensagem.value);
   }
+}
+
+function executarDescriptografar(texto) {
+  const textoMinusculoSemAcento = removeAcento(texto);
+  const textoDescriptografado = descriptografar(textoMinusculoSemAcento);
+  mensagem.classList.remove("imagemDeFundo");
+  podeCopiar = true;
+  mensagem.value = textoDescriptografado;
+  textArea.value = "";
+}
 
 function descriptografar(stringDescriptografada) {
     let matrizCodigo = [["e" , "enter"], ["i" , "imes"], ["a" , "ai"], ["o" , "ober"], ["u" , "ufat"]];
@@ -43,59 +59,100 @@ function descriptografar(stringDescriptografada) {
             stringDescriptografada = stringDescriptografada.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0]);
         }
     }
-    hideNoResultContainer();
-    showResultContainer();
     return stringDescriptografada;
 }
 
-const btnCopiar = document.querySelector(".btn-copiar");
-const textArea2 = document.querySelector(".msg");
+function copiarTexto() {
+  if (podeCopiar) {
+    mensagem.selector();
+    mensagem.setSelectionRange(0.999999);
+    navigator.clipboard.writeText(mensagem.value);
+    alert("Texto Copiado");
+  }
+}
 
-btnCopiar.addEventListener("click", (e) => {
-    navigator.clipboard.writeText(textArea2.value);});
+// const btnCopiar = document.querySelector(".btn-copiar");
+// const textArea2 = document.querySelector(".msg");
 
-
-// /*Função que some com a imagem e o texto do text area msg*/
-// var x = "Mozilla";
-// var empty = "";
-
-// console.log(
-//   "Mozilla possui " + x.length + " unidades de código de comprimento",
-// );
-// /* "Mozilla possui 7 unidades de código de comprimento" */
-
-// console.log("A string vazia possui um comprimento de " + empty.length);
-// /* "A string vazia possui um comprimento de 0" */
+// btnCopiar.addEventListener("click", (e) => {
+//     navigator.clipboard.writeText(textArea2.value);});
 
 
-    // // Obtém o elemento de input
-    // const campoDeTexto = document.getElementById('campoDeTexto');
-    
-    // // Função para verificar o valor do campo de texto e esconder a imagem de fundo
-    // function verificarTexto() {
-    //   const valorCampo = campoDeTexto.value;
-    //   const imagemDeFundo = document.body.style.backgroundImage;
 
-    //   if (valorCampo.length > 0) {
-    //     // Se houver caracteres no campo de texto, esconde a imagem de fundo
-    //     document.body.style.backgroundImage = 'none';
-    //   } else {
-    //     // Se o campo de texto estiver vazio, mostra a imagem de fundo novamente
-    //     document.body.style.backgroundImage = imagemDeFundo;
-    //   }
-    // }
+// const textArea = document.querySelector(".text-area");
+// const mensagem = document.getElementById(".msg");
+// let podeCopiar = false;
 
-    // // Adicione um ouvinte de evento ao campo de texto para chamar a função
-    // campoDeTexto.addEventListener('input', verificarTexto);
+// function btnCriptografar(){
+//     if (textArea.value !== "") {
+//         const textoMinusculoSemAcento = removeAcento(textArea.value)
+//         const textoCriptografado = criptografar(textoMinusculoSemAcento);
+//         mensagem.classList.remove("imagemDeFundo");
+//         podeCopiar = true;
+//         mensagem.value = textoCriptografado;
+//         textArea.value = "";
+//         retira_acentos(textArea);
+//     }
+// }
 
-    function showResultContainer() {
-        resultContainer.classList.add("active");
-      }
-      
-      function hideNoResultContainer() {
-        noResultContainer.classList.add("inative");
-      }
-      
-      function showNoResultContainer() {
-        noResultContainer.classList.remove("inative");
-      }
+// function criptografar(stringCriptografada) {
+//     let matrizCodigo = [['e', 'enter'], ['i', 'imes'], ['a', 'ai'], ['o', 'ober'], ['u', 'ufat']]
+//     stringCriptografada = stringCriptografada.toLowerCase();
+
+//     for(let i = 0; i < matrizCodigo.length; i++){
+//         if(stringCriptografada.includes(matrizCodigo[i][0])){
+//             stringCriptografada = stringCriptografada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
+//         }
+//     }
+//     return  stringCriptografada;
+// }
+
+// function btnDescriptografar(){
+//     if (textArea.value !== "") {
+//         executaDesencriptar(textArea.value)
+//     } else if (mensagem.value !== "") {
+//         executaDesencriptar(mensagem.value)
+//     }
+// }
+
+// function executaDesencriptar(texto){
+//     const textoMinusculoSemAcento = removeAcento(texto)
+//     const textoDescriptografado = Descriptografar(textoMinusculoSemAcento);
+//     mensagem.classList.remove("imagemDeFundo");
+//     podeCopiar = true;
+//     mensagem.value = textoDescriptografado;
+//     textArea.value = "";
+// }
+
+// function Descriptografar(stringDesencriptada) {
+//     let matrizCodigo = [['e', 'enter'], ['i', 'imes'], ['a', 'ai'], ['o', 'ober'], ['u', 'ufat']]
+//     stringDesencriptada = stringDesencriptada.toLowerCase();
+
+//     for(let i = 0; i < matrizCodigo.length; i++){
+//         if(stringDesencriptada.includes(matrizCodigo[i][1])){
+//             stringDesencriptada = stringDesencriptada.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0]);
+//         }
+//     }
+//     return  stringDesencriptada;
+// }
+
+// function copiarTexto() {
+//     if (podeCopiar) {
+//         mensagem.select();
+//         mensagem.setSelectionRange(0, 99999)
+//         navigator.clipboard.writeText(mensagem.value);
+//         alert("Texto copiado");
+//     }
+// }
+
+// function removeAcento (text)
+// {       
+//     text = text.toLowerCase();                                                         
+//     text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+//     text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+//     text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+//     text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+//     text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+//     text = text.replace(new RegExp('[Ç]','gi'), 'c');
+//     return text;
+// }
