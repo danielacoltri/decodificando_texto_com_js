@@ -3,7 +3,7 @@ const mensagem = document.querySelector(".msg");
 
 function btnCriptografar(){
     if (textArea.value !== "") {
-        const textoMinusculoSemAcento = removerAcento(textArea.value)
+        const textoMinusculoSemAcento = removeAcento(textArea.value)
         const textoCriptografado = criptografar(textoMinusculoSemAcento);
         mensagem.value = textoCriptografado;
         textArea.value = "";
@@ -57,14 +57,14 @@ btnCopiar.addEventListener("click", (e) => {
     navigator.clipboard.writeText(textArea2.value);});
 
 
-function removerAcento (text)
-{       
-    text = text.toLowerCase();                                                         
-    text = text.replace(new RegExp('[áàãâ]','gi'), 'a');
-    text = text.replace(new RegExp('[éèê]','gi'), 'e');
-    text = text.replace(new RegExp('[íìî]','gi'), 'i');
-    text = text.replace(new RegExp('[óòôõ]','gi'), 'o');
-    text = text.replace(new RegExp('[úúû]','gi'), 'u');
-    text = text.replace(new RegExp('[ç]','gi'), 'c');
-    return text;
+var the_title = retira_acentos(this.title.toLowerCase());
+
+function removeAcento (texto){                                                               
+    texto = texto.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+    texto = texto.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+    texto = texto.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+    texto = texto.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+    texto = texto.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+    texto = texto.replace(new RegExp('[Ç]','gi'), 'c');
+    return texto;                 
 }
