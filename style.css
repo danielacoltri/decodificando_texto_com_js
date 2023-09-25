@@ -6,6 +6,11 @@
     line-height: 150%;
 }
 
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
 main {
     display: flex;
     margin-bottom: 50px;
@@ -33,9 +38,9 @@ header {
 
 h1 {
     margin-top: 1%;
-    margin-right: 10%;
+    margin-right: 15%;
     position: relative;
-    font-size: 8vh;
+    font-size: 6vh;
     color: #e5e5e5;
     -webkit-text-stroke: 0.09vw #0A3871;
 }
@@ -112,14 +117,13 @@ h1::before {
     font-size: 16px;
     color: #272727;
     margin-top:-200px;
-    margin-left: 250px;
+    margin-left: 46%;
 }
 
 .texto-box {
     color: #272727;
     text-align: center;
     font-size: 14px;
-    margin-top: -10px;
     margin-left: 250px;
 }
 
@@ -162,7 +166,7 @@ h1::before {
     width: 250px;
     font-size: 18px;
     font-weight: 600;
-    left: 50%;
+    left: 49%;
     bottom: 2px;
 }
 
@@ -181,6 +185,7 @@ h1::before {
 footer {
     display: flex;
     justify-content: center;
+
     color: #0A3871;
 }
 
